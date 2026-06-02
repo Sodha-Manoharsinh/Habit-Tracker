@@ -1,4 +1,4 @@
-import { useHabits } from "./context/HabitProvider";
+import { useHabits } from "./context/useHabits";
 import HabitItem from "./HabitItem";
 
 const HabitList = () => {

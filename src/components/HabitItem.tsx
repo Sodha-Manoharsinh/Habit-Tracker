@@ -7,7 +7,7 @@ import {
   startOfWeek,
 } from "date-fns";
 import Button from "./Button";
-import { Habit, useHabits } from "./context/HabitProvider";
+import { Habit, useHabits } from "./context/useHabits";
 
 type HabitItemProps = {
   habit: Habit;
