@@ -1,13 +1,14 @@
 import HabitItem from "./HabitItem";
 
-export type Habit = { id: string; name: string };
+export type Habit = { id: string; name: string; completion: Date[] };
 
 type HabitListProps = {
   habits: Habit[];
   removeHabit: (id: string) => void;
+  toggleHabit: (id: string, date: Date) => void;
 };
 
-const HabitList = ({ habits, removeHabit }: HabitListProps) => {
+const HabitList = ({ habits, removeHabit, toggleHabit }: HabitListProps) => {
   if (habits.length === 0) {
     return (
       <p className="text-center text-zinc-500 py-12">
@@ -22,6 +23,7 @@ const HabitList = ({ habits, removeHabit }: HabitListProps) => {
           key={habit.id}
           habit={habit}
           removeHabit={removeHabit}
+          toggleHabit={toggleHabit}
         ></HabitItem>
       ))}
     </div>
