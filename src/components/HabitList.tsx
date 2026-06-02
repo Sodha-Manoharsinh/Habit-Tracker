@@ -1,7 +1,11 @@
 import { useHabits } from "./context/useHabits";
 import HabitItem from "./HabitItem";
 
-const HabitList = () => {
+type HabitListProps = {
+  visibleDates: Date[];
+};
+
+const HabitList = ({ visibleDates }: HabitListProps) => {
   const { habits } = useHabits();
   if (habits.length === 0) {
     return (
@@ -13,7 +17,11 @@ const HabitList = () => {
   return (
     <div className="flex flex-col gap-3">
       {habits.map((habit) => (
-        <HabitItem key={habit.id} habit={habit}></HabitItem>
+        <HabitItem
+          key={habit.id}
+          habit={habit}
+          visibleDates={visibleDates}
+        ></HabitItem>
       ))}
     </div>
   );
